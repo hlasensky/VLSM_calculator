@@ -1,5 +1,6 @@
 import math
 import re
+import pprint
 
 diferent_prf = 0 
 
@@ -121,15 +122,27 @@ def mask(prf):
 
 def finall_convertor(ones_zeros):
     '''Formating nad printing out ip adesses and their prefix'''
+    print("--------" * 7)
     for i in ones_zeros:
         bites = [int(i[:8],2), int(i[8:16],2), int(i[16:24],2), int(i[24:32],2)]
         # Converting binary bytes to decimal 
         if diferent_prf == 0:
-            print(f"IP: {bites[0]}.{bites[1]}.{bites[2]}.{bites[3]} | Prefix: /{prf[0][ones_zeros.index(i)]} | Mask: {prf[1][ones_zeros.index(i)]}") 
+            if len(f"{bites[3]}") == 1:
+                print(f"IP: {bites[0]}.{bites[1]}.{bites[2]}.{bites[3]}   | Prefix: /{prf[0][ones_zeros.index(i)]} | Mask: {prf[1][ones_zeros.index(i)]}") 
+            if len(f"{bites[3]}") == 2:
+                print(f"IP: {bites[0]}.{bites[1]}.{bites[2]}.{bites[3]}  | Prefix: /{prf[0][ones_zeros.index(i)]} | Mask: {prf[1][ones_zeros.index(i)]}") 
+            if len(f"{bites[3]}") == 3:
+                print(f"IP: {bites[0]}.{bites[1]}.{bites[2]}.{bites[3]} | Prefix: /{prf[0][ones_zeros.index(i)]} | Mask: {prf[1][ones_zeros.index(i)]}") 
             # Printing formated ip and prefix
         else:
-            print(f"IP: {bites[0]}.{bites[1]}.{bites[2]}.{bites[3]} | Prefix: /{32 - prf} | Mask: {mask}")
+            if len(f"{bites[3]}") == 1:
+                print(f"IP: {bites[0]}.{bites[1]}.{bites[2]}.{bites[3]}   | Prefix: /{32 - prf} | Mask: {mask}")
+            if len(f"{bites[3]}") == 2:
+                print(f"IP: {bites[0]}.{bites[1]}.{bites[2]}.{bites[3]}  | Prefix: /{32 - prf} | Mask: {mask}")
+            if len(f"{bites[3]}") == 3:
+                print(f"IP: {bites[0]}.{bites[1]}.{bites[2]}.{bites[3]} | Prefix: /{32 - prf} | Mask: {mask}")
             # Printing formated ip and prefix 
+    print("--------" * 7)
 
 
 ip_addres = input("Zadejte ip adresu sítě: ")
