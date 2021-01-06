@@ -1,6 +1,6 @@
 import math
 import re
-import pprint
+
 
 diferent_prf = 0 
 
@@ -192,7 +192,6 @@ while True:
                 if len(number_of_computers) > number_of_subnets:
                     number_of_computers = str(input("Zadejte správný počet velikostí podsítí ve formátu x, y, z,... sestupně!:")).split(",")
                 else:
-                    number_of_computers.sort()
                     break
             for plus in number_of_computers:
                 # Rounding number of hosts to power of two
