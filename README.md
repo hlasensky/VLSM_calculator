@@ -1,4 +1,6 @@
 # VLSM_calculator
-If You need to count subnet IPs and prefixes, this small program is for You.
 
-Just follow the questions asked by the program and everything shut work properly
+## Usage
+This program is made to help me in school with computer networks. It can compute, subnet's IP addresses, masks and prefix. 
+If you need subnets whitch are same size, just enter number of subnets, that are equal to power of two, however if you need speciffic sizes of networks, enter the number of them and number of hosts for each (It is needed to enter them in descending order). 
+
